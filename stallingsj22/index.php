@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -31,6 +30,7 @@
         a:hover {
             text-decoration: underline;
         }
+
     </style>
     <link rel="icon" type="image/x-icon" href="/stallingsj22/favicon.icon">
     <title>Home Page</title>
@@ -42,6 +42,9 @@
 </div>
 
 <div align="center">
-    <p><a href="/stallingsj22/assignment00/index.html">Assignment 00</a></p>
+    <p><a href="./assignment00/index.html">Assignment 00</a></p>
+
+    <p><a href="./assignment01/index.php">Assignment 01</a></p>
 </div>
+
 </html>

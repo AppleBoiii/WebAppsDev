@@ -1,9 +1,16 @@
 <html lang="en">
-    <head>
-        <style> 
+
+<head>
+    <style>
+        .header {
+            border: 2px solid black;
+            background-color: #e0e5e6;
+        }
+
         body {
             background-color: #b5c1c4;
         }
+
         div {
             display: flex;
             justify-content: center;
@@ -11,42 +18,56 @@
             margin-bottom: 1%;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #b5c1c4;
             border-collapse: collapse;
             text-align: center;
         }
-        th, td {
+
+        th,
+        td {
             background-color: #d1dbde;
             padding: 15px;
             height: 50px;
             width: 50px;
-        } 
+        }
+
         table {
             box-shadow: 1px 1px 20px grey;
         }
+
         td:hover {
             background-color: #b7c1c4;
         }
-        button:hover{
+
+        button:hover {
             background-color: #a0b3b8;
         }
+
         button {
             background-color: #a8b3b5;
             margin-right: 5px;
             box-shadow: 1px 1px 20px grey;
         }
+
         a {
             color: black;
+            text-decoration: none;
         }
-        </style>
-        <title>INFINITY COLUMNS</title>
-    </head>
 
-    <body>
-        <div>
-        <table> 
-        <?php
+    </style>
+    <title>INFINITY COLUMNS</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Exponetiation Table</h1>
+    </div>
+    <div>
+        <table>
+            <?php
 
             function science_notation($x) {
                 $i = 0;
@@ -80,14 +101,18 @@
             }
         ?>
         </table>
-        </div>
+    </div>
 
-        <div>
-        <button type="button"><a href="columns.php?COLUMNS=<?=$COLUMNS+1?>&ROWS=<?=$ROWS?>">Add Column </a></button>
-        <button type="button"><a href="columns.php?COLUMNS=<?=$COLUMNS-1?>&ROWS=<?=$ROWS?>">Remove Column </a></button>
-        <button type="button"><a href="columns.php?COLUMNS=<?=$COLUMNS?>&ROWS=<?=$ROWS+1?>">Add Row </a></button>
-        <button type="button"><a href="columns.php?COLUMNS=<?=$COLUMNS?>&ROWS=<?=$ROWS-1?>">Remove Row </a></button>
-        </div>  
-    </body>
-    
+    <div>
+        <button type="button"><a href="index.php?COLUMNS=<?=$COLUMNS+1?>&ROWS=<?=$ROWS?>">Add Column </a></button>
+        <button type="button"><a href="index.php?COLUMNS=<?=$COLUMNS-1?>&ROWS=<?=$ROWS?>">Remove Column </a></button>
+        <button type="button"><a href="index.php?COLUMNS=<?=$COLUMNS?>&ROWS=<?=$ROWS+1?>">Add Row </a></button>
+        <button type="button"><a href="index.php?COLUMNS=<?=$COLUMNS?>&ROWS=<?=$ROWS-1?>">Remove Row </a></button>
+    </div>
+
+    <div>
+        <button type="button"><a href="../index.php">Home</a></button>
+    </div>
+</body>
+
 </html>
