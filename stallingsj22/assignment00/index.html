@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+            /* height: 25%; */
+
+        }
+
+        #img {
+            display: none;
+        }
+    </style>
+
+    <link rel="icon" type="image/x-icon" href="/stallingsj22/favicon.ico">
+    <title>About Me</title>
+</head>
+
+<div>
+    <h1>About Me</h1>
+    <!-- 
+    <img src="test.jpg" alt="Pic of me here." class="center"> -->
+</div>
+
+<body>
+    <nav>
+        <img src="../transparent-blink.gif" alt="Blinking eye gif">
+        <a href="../index.php">Home</a>
+        <a href="../assignment00/index.html">Biography</a>
+        <a href="../assignment00/schedule.html">My Class Schedule</a>
+        <a href="../assignment00/sites.html">External Sites</a>
+    </nav>
+
+    <main>
+        <p> My name is Joshua Stallings and I am a senior at the Arkansas School for Mathematics, Sciences, and the Arts locationed in Hot Springs, Arkansas. I was matched with Rice University through Questbridge and was admitted in to the school of engineering. I plan to either major in Computer Science or Mechanical Engineering with a minor in French. My favorite subjects are physics, computer science, and any foreign languages. I like to go hiking, lift weights, or play video games whenever I am not doing homework. </p>
+
+        <img class="center" src="me.jpg" alt="A picture of me.">
+
+        <p>BEHOLD.MONKEY</p>
+
+        <img class="center" id="img" src="https://c.tenor.com/dFucO4PxEk4AAAAM/monkey-dramatic.gif" alt="Monkey falling gif">
+
+        <button class="center" type="button" onclick="show()" id="btnID">Show/Hide Image</button>
+        <script>
+            function show() {
+                if (document.getElementById("img").style.display === "none") {
+                    document.getElementById("img").style.display = "block";
+                } else {
+                    document.getElementById("img").style.display = "none";
+                }
+            }
+        </script>
+
+    </main>
+
+</body>
+
+</html>
+
+<!--
+-Bio
+Description and picture
+-Schedule
+Classes in table format,
+-Links to favorite websites
+3, images, texts, and links
+-->
