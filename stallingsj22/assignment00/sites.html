@@ -3,27 +3,28 @@
 <head>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" type="image/x-icon" href="/stallingsj22/favicon.ico">
-    <style>
-
-    </style>
     <title>Websites</title>
 </head>
 
-<div>
-    <h1>Best Websites Ever</h1>
-</div>
 
 <body>
+    <div class="headerDiv" align="center">
+        <h1>Best Websites Ever</h1>
+    </div>
     <nav>
-        <img src="../transparent-blink.gif" alt="Blinking Eye gif">
+        <img src="../transparent-blink.gif" alt="Blinking eye gif">
         <a href="../index.php">Home</a>
-        <a href="../assignment00/index.html">Biography</a>
-        <a href="../assignment00/schedule.html">My Class Schedule</a>
-        <a href="../assignment00/sites.html">External Sites</a>
+
+        <a href="#" class="dropDown-button"> Assignment 00</a>
+        <div class="dropDown">
+            <a href="../assignment00/index.html"><small>Biography</small></a>
+            <a href="../assignment00/schedule.html"><small>My Class Schedule</small></a>
+            <a href="../assignment00/sites.html"><small>External Sites</small></a>
+        </div>
     </nav>
 
-    <main style="margin-top: 10px;">
-        Here are several websites I have found useful or fun to play around with.
+    <div>
+        <p>Here are several websites I have found useful or fun to play around with. </p>
 
         <ul>
             <li><a href="https://www.boredbutton.com/random" target="_blank">boredbutton.com</a></li>
@@ -38,8 +39,24 @@
             <a href="https://discord.com/" target="_blank"> <img src="https://cdn.logojoy.com/wp-content/uploads/20210422095037/discord-mascot.png" alt="Discord Logo" style="width: 25%;"> </a>
             <p>It's pretty cool. </p>
         </ul>
+        <script>
+            var dropdown = document.getElementsByClassName("dropDown-button");
+            for (var i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
 
-    </main>
+        </script>
+    </div>
 
 
-</body></html>
+</body>
+
+</html>

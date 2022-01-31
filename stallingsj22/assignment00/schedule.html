@@ -1,28 +1,29 @@
 <html>
 
 <head>
-    <style>
-    </style>
+
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" type="image/x-icon" href="/stallingsj22/favicon.ico">
     <title>My Schedule</title>
 </head>
 
-<div>
-    <h1>ASMSA Schedule</h1>
-</div>
-
 <body>
-    <nav>
-        <img src="../transparent-blink.gif" alt="Blinking Eye gif">
-        <a href="../index.php">Home</a>
-        <a href="../assignment00/index.html">Biography</a>
-        <a href="../assignment00/schedule.html">My Class Schedule</a>
-        <a href="../assignment00/sites.html">External Sites</a>
-    </nav>
+    <div class="headerDiv" align="center">
+        <h1>ASMSA Schedule</h1>
+    </div>
 
-    <main style="margin-top: 10px;">
+    <div style="margin-top: 10px;">
+        <nav>
+            <img src="../transparent-blink.gif" alt="Blinking eye gif">
+            <a href="../index.php">Home</a>
 
+            <a href="#" class="dropDown-button"> Assignment 00</a>
+            <div class="dropDown">
+                <a href="../assignment00/index.html"><small>Biography</small></a>
+                <a href="../assignment00/schedule.html"><small>My Class Schedule</small></a>
+                <a href="../assignment00/sites.html"><small>External Sites</small></a>
+            </div>
+        </nav>
         <table>
             <tr>
                 <th>Class</th>
@@ -68,7 +69,23 @@
             </tr>
         </table>
 
-    </main>
+        <script>
+            var dropdown = document.getElementsByClassName("dropDown-button");
+            for (var i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+
+        </script>
+    </div>
 
 </body>
+
 </html>

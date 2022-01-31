@@ -1,19 +1,13 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #bec9ca;
-            text-align: center;
+        .headerDiv,
+        div {
+            margin-left: auto;
         }
-
-        /*    p {
-            background-color: slategrey;
-            width: 150px;
-            height: 25px;
-            padding-top: 5px;
-        } */
 
         a:link,
         a:visited {
@@ -31,20 +25,27 @@
             text-decoration: underline;
         }
 
+        a {
+            width: auto;
+            margin: auto;
+        }
+
     </style>
-    <link rel="icon" type="image/x-icon" href="/stallingsj22/favicon.icon">
     <title>Home Page</title>
 </head>
 
-<div style="border-style:solid; border-color: #93a7a6; background-color: #e0e5e6;">
-    <h1>Joshua Stallings</h1>
-    <h2>Assignment Hub</h2>
-</div>
+<body>
+    <div class="headerDiv" align="center" style="margin-left=0px;">
+        <h1>Joshua Stallings</h1>
+        <h2>Assignment Hub</h2>
+    </div>
 
-<div align="center">
-    <p><a href="./assignment00/index.html">Assignment 00</a></p>
+    <div align="center">
+        <a href="./assignment00/index.html">Assignment 00</a>
 
-    <p><a href="./assignment01/index.php">Assignment 01</a></p>
-</div>
+        <p><a href="./assignment01/index.php">Assignment 01</a></p>
+    </div>
+
+</body>
 
 </html>
