@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -41,9 +42,9 @@
     </div>
 
     <div align="center">
-        <a href="./assignment00/index.html">Assignment 00</a>
-
+        <p><a href="./assignment00/index.html">Assignment 00</a></p>
         <p><a href="./assignment01/index.php">Assignment 01</a></p>
+        <p><a href="./assignment02/puzzle1.php">Assignment 02</a></p>
     </div>
 
 </body>
