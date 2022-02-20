@@ -7,6 +7,7 @@ body {
 
 div {
     margin-left: 210px;
+    margin-bottom: 5px;
 }
 
 .headerDiv {
@@ -84,4 +85,8 @@ th,
 td {
     padding: 15px;
     background-color: #c5ccd1;
+}
+
+table {
+    margin: 15px;
 }
