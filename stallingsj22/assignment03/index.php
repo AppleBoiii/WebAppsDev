@@ -52,8 +52,8 @@
         $data = stripslashes($data);
         return htmlspecialchars($data);
     }
-    function makeTable() {
-        $conn = new mysqli("localhost", "stallingsj22", "password", "stallingsj22");
+    function makeTable($username, $password, $db) {
+        $conn = new mysqli("localhost", $username, $password, $db);
 
         if($conn->connect_error) {
             die("Connection failed: ".$conn->connect_error);
@@ -72,7 +72,8 @@
         echo "<tr> <th>Assignment</th> <th>Info</th> <th>Due</th> <th>Status</th> </tr>";
 
         while($row = $result->fetch_assoc()) {
-            echo "<tr><td>".htmlspecialchars($row['NAME'])."</td><td>".htmlspecialchars($row['ABOUT'])."</td><td>".htmlspecialchars($row['DATE'])."</td><td>".htmlspecialchars($row['STATUS'])."</td></tr>";
+            $status = htmlspecialchars($row['STATUS']) == 1 ? 'Completed' : 'Incomplete';
+            echo "<tr><td>".htmlspecialchars($row['NAME'])."</td><td>".htmlspecialchars($row['ABOUT'])."</td><td>".htmlspecialchars($row['DATE'])."</td><td>".$status."</td><td>".drawDeletebtn()."</td></tr>";
 
         }
 
@@ -80,38 +81,46 @@
         $conn->close();    
     }
     function updateTable($user, $pass, $db) {
-        if(empty($_POST["name"])) return;
         
+        $conn = new mysqli("localhost", $user, $pass, $db);
+        if($conn->connect_error) {
+            die("Connection failed: ".$conn->connect_error);
+        }
+        
+        $stmt = $conn->prepare("INSERT INTO todo (NAME, ABOUT, DATE) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $name, $about, $due);
+        
+        if(empty($_POST["name"])) return;
         $name = clarify($_POST["name"]);
-        $about = "";
-        $due = "";
+        $about = NULL;
+        $due = NULL;
         
         if(!empty($_POST["about"])) $about = $_POST["about"];
         if(!empty($_POST["due"])) $due = $_POST["due"];
         
-        $conn = new mysqli("localhost", $user, $pass, $db);
-                if($conn->connect_error) {
-            die("Connection failed: ".$conn->connect_error);
-        }
-
-        else {
-            $query = "INSERT INTO todo (ID, NAME, ABOUT, DATE, STATUS) VALUES (NULL, ".$name.", ".$about.", ".$due.", NULL)";
-            $conn->query($query);
-            return;
-        }
+        if($stmt->execute() === FALSE) #echo "<div> ERROR </div> ";
+        #echo "<div> updating table... </div>";
+        $stmt->close();
+        $conn->close();
+        
+        return;
+    }
+        
+    function drawDeletebtn() {
+        return "<a href='./index.php'> Remove </a>";
     }
     
     $username = "stallingsj22";
     $password = "password";
     $db = "stallingsj22";
     updateTable($username, $password, $db);
-    makeTable();
+    makeTable($username, $password, $db);
 
 ?>
     </div>
 
     <div>
-        <form method="post" action="<?php echo htmlspecialchars($_server["PHP_SELF"]);?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             Name: <input type="text" name="name"> <span class="error">*</span> <br><br>
 
             About: <input type="text" name="about"> <br><br>
