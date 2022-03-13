@@ -15,9 +15,14 @@
             background-color: #abb9ba;
             color: black;
             padding: 15px;
+            padding-left: 50px;
+            padding-right: 50px;
+
             text-align: center;
             text-decoration: none;
             display: inline-block;
+
+            border-radius: 10px;
             border-style: solid;
             border-color: #93a7a6;
         }
@@ -42,10 +47,11 @@
     </div>
 
     <div align="center">
-        <p><a href="./assignment00/index.html">Assignment 00</a></p>
-        <p><a href="./assignment01/index.php">Assignment 01</a></p>
-        <p><a href="./assignment02/puzzle1.php">Assignment 02</a></p>
-        <p><a href="./assignment03/index.php">Assignment 03</a></p>
+        <p><a href="./assignment00/index.html">00</a></p>
+        <p><a href="./assignment01/index.php">01</a></p>
+        <p><a href="./assignment02/puzzle1.php">02</a></p>
+        <p><a href="./assignment03/index.php">03</a></p>
+        <p><a href="./assignment04/index.html">04</a></p>
     </div>
 
 </body>

@@ -1,0 +1,47 @@
+body {
+    font-family: serif;
+    margin: 0;
+    background-color: #c1c6e0;
+}
+
+div {
+    margin: auto;
+    width: 99%;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 5px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #393a3d;
+    border-radius: 10px;
+    background-color: #ced1de;
+
+}
+
+input[type=number] {
+    width: 7%;
+    transition: width .4s ease-in-out;
+}
+
+input[type=number]:focus {
+    width: 8%;
+}
+
+
+button {
+    width: auto;
+
+}
+
+
+.homeImage {
+    height: 3vh;
+}
+
+.headerDiv {
+    font-family: Courier New;
+    margin: auto;
+    text-align: center;
+}
