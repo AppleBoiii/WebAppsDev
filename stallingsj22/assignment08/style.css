@@ -1,0 +1,162 @@
+#signin {
+    display:block;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.picdiv { /*div for all photos + buttons */
+    align-content: center;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+   float: center;
+}
+.test { /*div for class buttons*/
+
+    align-content: center;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    
+}
+.collapse {
+    display: none;
+    float: left;
+    clear: both;
+    width: 95vw;
+    text-align: center;
+}
+.title {
+    text-align: center;
+    font: 40px;
+    font-weight: bold;
+    display: inline-block;
+    background: #0d0f5c;
+    color: #ffffe8;
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+.collapse-btn {
+    border-radius: 5px;
+    width: 8vw;
+    height: 6vw;
+    text-align: center;
+    background: #f5f8ff;
+    color: #0d0f5c;
+    border: 1px solid black;
+    font-family: Trebuchet MS;
+    font-size: 14px;
+    margin: .25%;
+    margin-top: 1%;
+}
+.collapse-btn:focus {
+    background: #9b9b9b;
+ }
+.bodyform {
+    align-content: center;
+    text-align: center;
+
+}
+
+.picture_div{ /* div for photos */
+    border-radius: 5px;
+    float: left;
+    border: 1px solid black;    
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 5vh;
+}
+
+.picture {
+    border-bottom: 1px solid black;
+    border-radius: 5px;
+   height: 40vh;
+   width: 15vw;
+}
+
+#profile {
+    display: none;
+}
+
+#searchdiv {
+    border: 1px solid black;
+    display: none;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+   height: 8vh;
+    margin-top: 1%;
+
+}
+
+#searchbar {
+    height: 4vh;
+    border-radius: 5px;
+   
+}
+
+input[type=text] {
+    width: 130px;
+    transition: width .5s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 80%;
+  }
+
+
+.profilediv {
+    border: 1px solid black;
+    display: none;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+   width: 18vw;
+    margin-top: 1%;
+    margin-bottom: 1%;
+   padding-bottom: 5px;
+   padding-left: 5px;
+  }
+
+  .upload {
+    background: #0d0f5c;
+    color: #ffffe8;
+   }
+   .upload:hover {
+   background: #177b2f;
+   }
+
+   h2 {
+   margin-top: 0px;
+   margin-bottom: 0px;
+   }
+   .signinbutton {
+   color: black;
+   }
+
+   #profileupload {
+   display: none;
+   justify-content: center;
+   align-items: center;
+   
+   }
+   .uploadbtn {
+    background: #333;
+     color: white;
+     margin-top: 5px;
+     margin-bottom: 1%;
+   }
+  .uploadbtn:hover{
+      background: #666
+  }
+  .editnamediv {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 20px;
+      margin-bottom: 5px
+  }

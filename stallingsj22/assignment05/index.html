@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Battleship Game</title>
+</head>
+
+<body onload='play()'>
+
+    <div>
+        <h1>B.S. Ship</h1>
+        <h2 id='ammo'></h2>
+    </div>
+
+
+    <div id='retry'>
+        <h2 id='retry-text'>Click here to restart</h2>
+        <h2 id='hard-text'>Or click here to play again but with CRAZY MDOE :> </h2>
+    </div>
+
+
+
+    <div id='divBoard'>
+        <table id='board'>
+        </table>
+    </div>
+
+
+    <div>
+        <a href='../index.php'> <img class='homeImage' src='https://cdn-icons-png.flaticon.com/512/60/60817.png' alt='Home Button Link'></a>
+    </div>
+
+
+    <script>
+        var carrier;
+        var hitsLeft;
+        var hasWon;
+        var hasLost;
+        var hardMode = false;
+
+        function showHits(n) {
+            let h = document.getElementById('ammo');
+            if (n == null) h.innerHTML = 'Hits Left: ' + hitsLeft;
+            else h.innerHTML = n;
+        }
+
+        function play() {
+            hitsLeft = 9;
+            hasWon = false;
+            hasLost = false;
+            carrier = [];
+
+            makeBoard();
+            generateShips(2);
+            generateShips(4);
+            generateShips(3);
+            generateShips(2);
+            generateShips(3);
+            generateShips(2);
+
+            showHits();
+
+
+        }
+
+
+        function makeBoard() {
+            e = document.getElementById('board');
+            for (var i = 0; i < 7; i++) {
+                //rows
+                var row = document.createElement('tr');
+                for (var j = 0; j < 7; j++) {
+                    //columns
+                    var td = document.createElement('td');
+                    var div = document.createElement('div');
+
+                    div.classList.add('tile');
+                    div.setAttribute('id', i + '_' + j);
+
+
+                    div.addEventListener('click', function() {
+                        var e = event.srcElement.id;
+                        check(e);
+                    });
+
+                    td.appendChild(div);
+                    row.appendChild(td);
+                }
+                e.appendChild(row);
+            }
+
+            e = document.getElementById('retry-text');
+            e.addEventListener('click', function() {
+                reset();
+            });
+
+            e = document.getElementById('hard-text');
+            if (hardMode) {
+                e.innerHTML = 'Click to keep going...';
+
+            }
+            e.addEventListener('click', function() {
+                other_reset();
+            });
+        }
+
+        function generateShips(n) {
+            //generates carrier
+            var xStart = (Math.floor(Math.random() * 7));
+            var yStart = (Math.floor(Math.random() * 7));
+            carrier[0] = yStart + '_' + xStart;
+
+            if ((xStart - (n - 1) > 0)) {
+                for (var i = 1; i < n; i++) {
+                    carrier[i] = yStart + '_' + (xStart - i);
+                }
+            } else if ((xStart + n < (n + 1))) {
+                for (var i = 1; i < n; i++) {
+
+                    carrier[i] = yStart + '_' + (xStart + i);
+
+                }
+            } else if ((yStart - (n - 1) > 0)) {
+                for (var i = 1; i < n; i++) {
+                    carrier[i] = (yStart - i) + '_' + xStart;
+                }
+            } else if ((yStart + (n - 1) < (n + 1))) {
+                for (var i = 1; i < n; i++) {
+                    carrier[i] = (yStart + i) + '_' + xStart;
+
+                }
+            }
+
+
+            //console.log(carrier.toString());
+
+            for (var i = 0; i < carrier.length; i++) {
+                var x = parseInt(carrier[i].split('_')[0]);
+                var y = parseInt(carrier[i].split('_')[1]);
+
+                var tile = document.getElementById(y + '_' + x);
+                tile.classList.add('ship')
+            }
+
+            //battleship
+
+        }
+
+        function check(e) {
+
+            let tile = document.getElementById(e);
+            if (hasWon) wonScreen();;
+            if (tile.className.includes('hit')) return;
+
+            if (tile.className.includes('ship')) {
+                tile.classList.remove('ship');
+                tile.classList.add('hit');
+
+                hitsLeft += 1;
+            } else {
+                tile.classList.add('missed');
+                hitsLeft -= 1;
+            }
+
+            tile.classList.add('hit');
+
+            if (hitsLeft <= 0) {
+                showHits('You LOST');
+                hasLost = true;
+                wonScreen();
+            } else showHits();
+
+            checkShips();
+
+        }
+
+        function checkShips() {
+            var hit = 0;
+            var total = 0;
+            for (var i = 0; i < 7; i++) {
+                for (var j = 0; j < 7; j++) {
+                    var tile = document.getElementById(i + '_' + j);
+                    if (tile.className.includes('hit')) hit++;
+                    if (tile.className.includes('ship')) total++;
+                }
+            }
+            //  console.log(hit);
+            //    console.log(total);
+            if (total == 0 && hitsLeft != 0) {
+                showHits('Winner!');
+                hasWon = true;
+                wonScreen();
+
+            }
+        }
+
+        function wonScreen() {
+            if (!hasWon && !hasLost) return;
+            var e = document.getElementById('retry');
+            e.style.display = 'initial';
+        }
+
+
+        function other_reset() {
+            hardMode = true;
+            var e = document.getElementById('retry');
+            if (e.style.display == 'initial') {
+                var f = document.getElementById('board');
+                while (f.firstChild) {
+                    f.removeChild(f.lastChild);
+                }
+            }
+
+            e.style.display = 'none';
+            play();
+        }
+
+        function reset() {
+
+            location.reload();
+
+        }
+
+    </script>
+
+</body>

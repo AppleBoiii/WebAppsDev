@@ -52,6 +52,10 @@
         <p><a href="./assignment02/puzzle1.php">02</a></p>
         <p><a href="./assignment03/index.php">03</a></p>
         <p><a href="./assignment04/index.html">04</a></p>
+        <p><a href="./assignment05/index.html">05</a></p>
+        <p><a href="./assignment06/index.html">06</a></p>
+        <p><a href="./assignment07/index.html">07</a></p>
+        <p><a href="./assignment08/index.php">08</a></p>
     </div>
 
 </body>

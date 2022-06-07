@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <title> Chatr </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e8e7e7;
+        }
+
+        #home_div {
+            display: none;
+        }
+
+        #login_div {
+            display: block;
+
+        }
+
+        /*
+        #pfp {
+            float: right;
+            margin-right: 30%;
+            border: 1px solid #5f5754;
+        }
+        */
+
+        .message {
+            display: inline-block;
+            border: 1px solid black;
+            margin-bottom: 2px;
+            width: 35vw;
+            height: 8vh;
+        }
+
+        .delButton {
+            float: right;
+        }
+
+        .btn {
+            color: #e8e7e7;
+            background-color: #21130d;
+
+        }
+
+        img {
+            display: inline-block;
+            float: left;
+            width: 8vh;
+            height: 8vh;
+        }
+
+    </style>
+    <script src="chat.js"></script>
+
+</head>
+
+<body onload='checkLogin();'>
+    <div>
+        <h1>Chatr!</h1>
+    </div>
+
+    <div>
+
+        <div id='login_div'>
+            <h3>Login</h3>
+            <p>
+
+            <form onsubmit='login(); return false;'>
+                <p id='loginError' style='color: red;'></p>
+                Username: <input id='loginUsername' type='text'>
+                Password: <input id='ddd' type='password'>
+                <input type='submit'>
+            </form>
+
+            <br> <br>
+
+            <h3>Register</h3>
+            <form onsubmit='register(); return false;'>
+                <p id='registerError' style='color: red;'></p>
+                Username: <input id='registerUsername' type='text'>
+                Password: <input id='registerPassword' , type=password>
+                <input type='submit'>
+            </form>
+
+        </div>
+
+        <div id='home_div'>
+
+            <div id='welcome_div' style='margin-bottom: 2%;'>
+                <!--The 'Welcome' message goes here-->
+            </div>
+
+            <div style='margin-bottom: 2%;'>
+                <input type='text' id='sentMessage' placeholder='Message...' onkeydown='maybeSend(event);' />
+
+                <div id='buttons' class='btn-group btn-group-sm'>
+                    <button type="button" class="btn" onclick='sendMessage();'>
+                        <p class="glyphicon glyphicon-send"> Send</p>
+                    </button>
+
+                    <button type="button" class="btn" onclick='signOut();'>
+                        <p class="glyphicon glyphicon-log-out"> Logout</p>
+                    </button>
+
+                    <button type="button" class="btn" onclick='changePfp();'>
+                        <p class='glyphicon glyphicon-open'> pfp</p>
+                    </button>
+
+                </div>
+            </div>
+            <div id='messages'>
+
+            </div>
+
+        </div>
+
+        <div id='pfp' style='margin-bottom:2%; display: none;'>
+            <form action='upload.php' method='post' enctype='multipart/form-data'>
+                <h3>Upload Profile Picture</h3>
+                <input style='margin-bottom: .5%;' type='file' name='fileToUpload' id='fileToUpload' />
+                <input style='margin-bottom: .5%;' type='submit' value='Upload Image' name='submit' title=" ">
+            </form>
+
+            <button onclick='location.reload();' class='btn btn-danger'>x</button>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

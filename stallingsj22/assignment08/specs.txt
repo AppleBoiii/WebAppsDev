@@ -1,0 +1,39 @@
+file tree:
+    -login.php
+        implements google API to login through school accnt
+        
+    -index.php
+        checks if isnt logged in and redirects to login.php if not
+        queries php db for active students and displays them by class
+        
+    -upload.php
+        allows a student to upload a picture to the db
+
+Specs:
+i am grouping with josh (josh + ash)
+
+idea: picpages, but better
+
+login system (google sign-in)
+update pfps
+matching game with people
+search bar/sort system (maybe)
+        
+
+DB:
+   ID | student name | email | img path
+
+
+API:
+    go to console.cloud.google.com
+    ASMSA ACCOUNT NOW
+    make a project. (asmsa login project do be existing)
+    API services and hit credentials on the left
+    create credentials
+    dropdown and OAuth client ID -> pick "webapp"
+    usertype is internal + no special permissions
+    make it where Authorized JavaScript origins is https://compsci.asmsa.org
+    Authorized redirect URLs needs the login address (like https://compsci.asmsa.org/sewardn/final/login.php)
+    
+    set session to let you know they are logged in
+    add entry to db if needed, redir to main page

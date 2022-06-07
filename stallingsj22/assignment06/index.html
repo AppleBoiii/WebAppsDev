@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <title> Chatr </title>
+    <style>
+        #home {
+            display: none;
+        }
+
+        #login {
+            display: block;
+        }
+
+        .message {
+            border: 1px solid black;
+            margin-bottom: 2px;
+            width: 35vw;
+            height: 5vh;
+        }
+
+        .delButton {
+            float: right;
+        }
+
+        body {
+            background-color: black;
+        }
+
+    </style>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='chat.js'></script>
+
+</head>
+
+<body onload='login()'>
+    <div>
+        <h1>Chatr!</h1>
+    </div>
+
+
+    <div id='home'>
+        <div style='margin-bottom: 2%;'>
+            <input type='text' id='sentMessage' />
+            <input type='button' onclick='sendMessage()' value='Send'>
+        </div>
+
+        <div id='messages'>
+
+        </div>
+
+    </div>
+
+    <div id='login'>
+        <h2>Login</h2>
+        <p>Enter a username to access the system.</p>
+
+        <form onsubmit='login()'>
+            Username: <input id='enterUsername' type='text'>
+            <input type='submit'>
+        </form>
+
+    </div>
+
+
+
+</body>
+
+</html>
